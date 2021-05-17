@@ -26,3 +26,14 @@ $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
   }
 });
 
+$.ajax({
+  type: 'POST',
+  url: 'http://0.0.0.0:5001/api/v1/places_search/'
+  data: '{}',
+  dataType: 'json',
+  success: function (data) {
+      for (places in places) {
+	  append(bullshit)
+      }
+  }
+});
