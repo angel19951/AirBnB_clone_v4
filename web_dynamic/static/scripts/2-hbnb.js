@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const checkedAmenities = {};
   const checkboxes = $('input');
-  const initial_text = $('DIV.amenities h4').text();
+  const initialText = $('DIV.amenities h4').text();
   for (const box of checkboxes) {
     box.addEventListener('change', function () {
       if (box.checked) {
@@ -10,8 +10,8 @@ $(document).ready(function () {
         delete checkedAmenities[$(box).data('id')];
       }
       const checkedList = Object.values(checkedAmenities);
-      if (checkedList.length < 1 ) {
-        checkedList.push(initial_text);
+      if (checkedList.length < 1) {
+        checkedList.push(initialText);
       }
       $('DIV.amenities h4').text(checkedList.join(', '));
     });
@@ -19,10 +19,9 @@ $(document).ready(function () {
 });
 
 $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
-  if (data['status'] === 'OK'){
+  if (data.status === 'OK') {
     $('DIV#api_status').addClass('available');
   } else {
     $('DIV#api_status').removeClass('avalable');
   }
 });
-
